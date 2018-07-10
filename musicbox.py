@@ -8,7 +8,7 @@ pushButton = Button(13)
 
 buttonCounter = 0
 
-dirPath = "/home/pi/Desktop/SwitchBoxSongs/"
+dirPath = "/home/pi/SwitchMusicBox/SwitchBoxSongs/"
 
 funSongs = os.listdir(dirPath);
 
