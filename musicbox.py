@@ -14,7 +14,7 @@ class Switch:
         self.buttonCounter = 0
         self.funSongsPlaylist=[]
         for self.songNames in self.funSongs:
-            if self.songNames.endswith(".wav"):
+            if self.songNames.endswith(".wav") and not self.songNames.startswith("."):
                 self.funSongsPlaylist.append(self.songNames)
 
     def playPushButton(self, buttonCounter):
