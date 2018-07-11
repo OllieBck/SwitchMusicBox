@@ -12,7 +12,7 @@ Adafruit's simple install link is:
 curl -sS https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/i2samp.sh | bash
 ```
 
-Download this repo by opening up Terminal and `git clone https://github.com/OllieBck/SwitchMusicBox`.
+Download this repo by opening up Terminal and `git clone https://github.com/OllieBck/SwitchMusicBox`.  Move into the director `cd /home/pi/SwitchMusicBox` and create an empty directory with `mkdir SwitchBoxSongs`.
 
 Install Samba and edit the config file to link to this directory.
 

@@ -4,34 +4,38 @@ from time import sleep
 from signal import pause
 import subprocess
 
-pushButton = Button(13)
+class Switch:
 
-buttonCounter = 0
+    def __init__(self, pinNumber, path):
+        self.buttonCounter = 0
+        self.pushButton = Button(pinNumber)
+        self.dirPath = path
+        self.funSongs = os.listdir(self.dirPath)
+        self.buttonCounter = 0
+        self.funSongsPlaylist=[]
+        for self.songNames in self.funSongs:
+            if self.songNames.endswith(".wav"):
+                self.funSongsPlaylist.append(self.songNames)
 
-dirPath = "/home/pi/SwitchMusicBox/SwitchBoxSongs/"
-
-funSongs = os.listdir(dirPath);
-
-funSongsPlaylist = []
-for songNames in funSongs:
-    if songNames.endswith(".wav"):
-        funSongsPlaylist.append(songNames)
-
-def playPushButton(buttonCounter):
-        playThisSong = funSongsPlaylist[buttonCounter]
+    def playPushButton(self, buttonCounter):
+        print(self.buttonCounter)
+        self.playThisSong = self.funSongsPlaylist[self.buttonCounter]
         subprocess.call(['killall', 'aplay'])
-        subprocess.Popen(['aplay', dirPath + playThisSong])
+        subprocess.Popen(['aplay', self.dirPath + self.playThisSong])
 
-def buttonPressCounter():
-    global buttonCounter
-    songCount = len(funSongsPlaylist)
-    if buttonCounter == songCount:
-        buttonCounter = 0
-        playPushButton(buttonCounter)
-    else:
-        playPushButton(buttonCounter)
-        buttonCounter = buttonCounter + 1
+    def buttonPressCounter(self):
+        self.songCount = len(self.funSongsPlaylist)
+        if self.buttonCounter == self.songCount:
+            self.buttonCounter = 0
+            self.playPushButton(self.buttonCounter)
+        else:
+            self.playPushButton(self.buttonCounter)
+            self.buttonCounter = self.buttonCounter + 1
 
-pushButton.when_pressed = buttonPressCounter
+pressSwitch = Switch(13, "/home/pi/SwitchMusicBox/SwitchBoxSongs/")
+squeezeSwitch = Switch(12, "/home/pi/SwitchMusicBox/SwitchBoxSongs/Playlist 1/")
+
+pressSwitch.pushButton.when_pressed = pressSwitch.buttonPressCounter
+squeezeSwitch.pushButton.when_pressed = squeezeSwitch.buttonPressCounter
 
 pause()
