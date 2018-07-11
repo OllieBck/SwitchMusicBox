@@ -77,4 +77,4 @@ $ sudo python /home/pi/Desktop/musicbox.py &
 ```
 Reboot the pi and see if script runs on startup.
 
-If it does, edit code and hardware to take on additional switches.
+If it does, edit code and hardware to account for additional switches. GPIO 18, 19, and 21 are taken up by the Bonnet.
