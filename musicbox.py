@@ -32,8 +32,8 @@ class Switch:
             self.playPushButton(self.buttonCounter)
             self.buttonCounter = self.buttonCounter + 1
 
-pressSwitch = Switch(13, "/home/pi/SwitchMusicBox/SwitchBoxSongs/")
-squeezeSwitch = Switch(12, "/home/pi/SwitchMusicBox/SwitchBoxSongs/Playlist 1/")
+pressSwitch = Switch(13, "/home/pi/SwitchMusicBox/Songs/")
+squeezeSwitch = Switch(12, "/home/pi/SwitchMusicBox/Songs/Playlist 1/")
 
 pressSwitch.pushButton.when_pressed = pressSwitch.buttonPressCounter
 squeezeSwitch.pushButton.when_pressed = squeezeSwitch.buttonPressCounter
