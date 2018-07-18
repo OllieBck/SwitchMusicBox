@@ -34,7 +34,7 @@ sudo nano /etc/samba/smb.conf
 Add below at the end of the smb.conf file:
 
 ```
-[musicbox Music]
+[musicbox songs]
  comment=musicbox share
  path=/home/pi/switchmusicbox/songs
  browseable=Yes
